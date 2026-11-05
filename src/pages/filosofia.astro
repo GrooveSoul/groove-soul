@@ -1,0 +1,170 @@
+
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Filosofía | Groove Soul"
+  description="Groove Soul: descubrir y compartir música sin fronteras ni etiquetas."
+>
+
+  <main class="philosophy-page">
+
+    <header class="philosophy-header">
+      <span class="eyebrow">GROOVE SOUL</span>
+      <h1>La música no entiende de fronteras</h1>
+      <p class="subtitle">
+        De las cosas más bonitas esta escuchar nueva músicas que te hagan sentir y explorar cosas nuevas
+      </p>
+    </header>
+
+    <section class="philosophy-content">
+
+      <p class="intro">
+        La riqueza de la música está en que es capaz conseguir que culturas diferentes 
+        con idiomas distintos consigan comunicares y hacer sentir diferentes emociones a quien lo escuche.
+      </p>
+
+      <p>
+        <strong>Groove Soul nace de la pasión por escuchar y descubrir
+        música nueva y sorprendente.</strong><br>Un espacio personal donde tienen
+        cabida el jazz, el funk, el soul, el blues sobretodo pero también muchos otros sonidos
+        que me han trasmitido algo.
+      </p>
+
+      <p>
+        Aquí no hay listas de éxitos, tendencias que seguir ni verdades
+        absolutas. Solo discos, músicos y canciones que merecen ser
+        escuchados, desde mi punto de vista. Algunos conocidos, otros por descubrir. Unas veces
+        por su historia, otras por su sonido y, sobretodo, por lo que me hacen sentir.
+      </p>
+
+      <p>
+        Porque, más allá de los estilos y las etiquetas,
+        lo importante de la música es lo que ocurre cuando conecta con tu ser.
+      </p>
+
+    </section>
+
+    <blockquote class="philosophy-quote">
+      «No importa de dónde venga la música, sino hasta dónde puede llevarte».
+    </blockquote>
+
+    <footer class="philosophy-footer">
+      <span>GROOVE SOUL</span>
+      <span>Escucha · Descubre · Siente</span>
+    </footer>
+
+  </main>
+
+</Layout>
+
+<style>
+  .philosophy-page {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 55px 24px 80px;
+  }
+
+  .philosophy-header {
+    text-align: center;
+    margin-bottom: 65px;
+  }
+
+  .eyebrow {
+    display: block;
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 22px;
+  }
+
+  .philosophy-header h1 {
+    font-family: var(--serif);
+    font-size: clamp(34px, 5vw, 52px);
+    font-weight: normal;
+    line-height: 1.2;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 20px;
+  }
+
+  .philosophy-content {
+    max-width: 690px;
+    margin: 0 auto;
+  }
+
+  .philosophy-content p {
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 25px;
+  }
+
+  .philosophy-content .intro {
+    font-family: var(--serif);
+    font-size: 21px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  .philosophy-content strong {
+    color: var(--gold);
+    font-weight: normal;
+  }
+
+  .philosophy-quote {
+    max-width: 650px;
+    margin: 65px auto 0;
+    padding: 30px 20px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 23px;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--gold);
+  }
+
+  .philosophy-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 65px;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 600px) {
+    .philosophy-page {
+      padding: 40px 20px 60px;
+    }
+
+    .philosophy-header {
+      margin-bottom: 45px;
+    }
+
+    .philosophy-content .intro {
+      font-size: 19px;
+    }
+
+    .philosophy-quote {
+      font-size: 20px;
+      margin-top: 45px;
+    }
+
+    .philosophy-footer {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+</style>

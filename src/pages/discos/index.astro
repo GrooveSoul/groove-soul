@@ -1,0 +1,89 @@
+
+---
+import Layout from '../../layouts/Layout.astro';
+
+const albums = [
+  {
+    title: 'Renaissance',
+    artist: 'Marcus Miller',
+    year: 2012,
+    style: 'Funk · Soul · Blues',
+    cover: '/images/discos/renaissance.jpg',
+    href: '/discos/renaissance/',
+  },
+];
+---
+<Layout title="Discos" description="Archivo de álbumes de Groove Soul.">
+  <section class="container archive">
+    <p class="eyebrow">EL ARCHIVO MUSICAL</p>
+    <h1 class="page-title">Discos para<br /><span>volver a escuchar.</span></h1>
+    <p class="lead">
+      Álbumes que me acompañan, me despiertan curiosidad o me hacen
+      detenerme a escuchar de otra manera.
+    </p>
+
+    <div class="album-grid">
+      {albums.map((album) => (
+        <a class="album-card" href={album.href}>
+          <img src={album.cover} alt={`Portada de ${album.title}`} />
+          <p class="eyebrow">{album.style}</p>
+          <h2>{album.title}</h2>
+          <p class="artist">{album.artist} · {album.year}</p>
+          <span class="text-link">Descubrir el disco ↗</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <style>
+    .archive {
+      padding-top: 75px;
+    }
+
+    .page-title span {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .lead {
+      margin-bottom: 50px;
+    }
+
+    .album-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 30px 24px;
+    }
+
+    .album-card img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      margin-bottom: 18px;
+    }
+
+    .album-card .eyebrow {
+      margin-bottom: 4px;
+      font-size: 10px;
+    }
+
+    .album-card h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 500;
+    }
+
+    .artist {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 650px) {
+      .album-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px 15px;
+      }
+    }
+  </style>
+</Layout>

@@ -1,0 +1,292 @@
+
+---
+import Layout from '../../layouts/Layout.astro';
+
+const album = {
+  title: 'TITULO_DISCO',
+  artist: 'MUSICO',
+  year: AÑO,
+  label: 'DISCOGRAFICA',
+  style: 'ESTILO',
+  cover: '/images/discos/IMAGEN_DISCO.jpg',
+  musicians: [
+    { name: 'NOMBRE MUSICO', role: 'INSTRUMENTOS', href: 'RUTA_MUSICO' },
+    { name: 'NOMBRE MUSICO2', role: 'INSTRUMENTOS', href: 'RUTA_MUSICO2' },
+    { name: 'NOMBRE MUSICO3', role: 'INSTRUMENTOS', href: 'RUTA_MUSICO3' }
+  ],
+};
+---
+
+<Layout
+  title={`${album.title} · ${album.artist}`}
+  description="DESCRIPCION DEL DISCO"
+>
+  <article class="container album-page">
+    <a class="back-link" href="/discos/">← Volver a los discos</a>
+
+    <header class="album-header">
+      <div class="cover-column">
+        <img class="cover" src={album.cover} alt={`Portada de ${album.title}, de ${album.artist}`} />
+        <p class="cover-caption">SUBTITULO DEL DISCO</p>
+      </div>
+
+      <div class="album-details">
+        <p class="eyebrow">EL ÁLBUM</p>
+        <h1>{album.title}</h1>
+        <p class="artist">{album.artist}</p>
+        <p class="year">{album.year}</p>
+        <div class="rule"></div>
+
+        <dl>
+          <dt>Estilo</dt>
+          <dd>{album.style}</dd>
+          <dt>Discográfica</dt>
+          <dd>{album.label}</dd>
+        </dl>
+
+        <h2>Los músicos</h2>
+        <ul class="musician-list">
+          {album.musicians.map((musician) => (
+            <li>
+              <a href={musician.href}>
+                <span>{musician.name}</span>
+                <small>{musician.role}</small>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </header>
+
+    
+    <div class="article-body">
+      <p class="eyebrow">UNA FRASE DEL DISCO</p>
+      <h2>TITULO1</h2>
+
+      <p>
+        cositas, <em>del disco</em> y mas cositas del disco.
+        </p>
+        <p>
+        Contamos cosas del disco y de los musicos con cosas que <em>resaltar</em> 
+      </p>
+
+      
+
+
+      <h2>Las personas detrás del sonido</h2>
+
+      <p>
+        COSAS DE LOS MUSICOS
+      </p>
+
+      <p>
+        PUES MUSICOSA y su pathh <a href="/musicos/alex-han/">Alex Han</a>,
+        y mas cosas de los musicos
+      </p>
+
+      <p>
+        Otra musico<a href="/musicos/gretchen-parlato/">Gretchen Parlato</a>,
+        que se puede escuchar en la canción <em>Setembro</em>
+      </p>
+
+      <h2>Una canción con imagen: que me trasporte a algunsitio o algo que vontar de ellas</h2>
+      <p>
+        Historia de una cancion y  demas <em>Cosas importantes</em> y demas.
+      </p>
+
+      <h2>Mi cancion favorita</h2>
+
+      <p class="placeholder">      
+        cosas sobre la cancion <em>titulo</em>,y demas cosas de la cancion elegida
+      </p>
+
+      <p class="editorial-note">
+        Nota: este artículo es una demostración de la estructura. Antes de
+        publicarlo, revisaremos los datos, los créditos y el texto definitivo.
+      </p>
+    </div>
+  </article>
+
+  
+<style>
+  .album-page {
+    padding-top: 38px;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 32px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+.album-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(28px, 4vw, 58px);
+  align-items: start;
+}
+
+  .cover {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .cover-caption {
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .album-details {
+    padding-top: 8px;
+    min-width: 0;
+  }
+
+  h1 {
+    margin: 10px 0 0;
+    font-family: var(--serif);
+    font-size: clamp(48px, 5.5vw, 72px);
+    font-weight: 500;
+    line-height: 1.08;
+  }
+
+  .artist {
+    margin: 10px 0 0;
+    font-size: 25px;
+  }
+
+  .year {
+    color: var(--muted);
+    letter-spacing: 3px;
+  }
+
+  .rule {
+    width: 48px;
+    height: 1px;
+    margin: 20px 0;
+    background: var(--gold);
+  }
+
+  dl {
+    display: grid;
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 10px 12px;
+    font-size: 13px;
+  }
+
+  dt {
+    color: var(--muted);
+  }
+
+  dd {
+    margin: 0;
+  }
+
+  .album-details h2,
+  .article-body h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+  }
+
+  .album-details h2 {
+    margin-top: 26px;
+    margin-bottom: 12px;
+    font-size: 22px;
+  }
+
+.musician-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) var(--surface);
+  padding-right: 10px;
+}
+
+.musician-list li {
+  border-top: 1px solid var(--line);
+}
+
+.musician-list a {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 0;
+}
+
+.musician-list small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+  .article-body {
+    max-width: 720px;
+    margin: 85px auto 0;
+    font-size: 16px;
+    line-height: 1.95;
+  }
+
+  .article-body h2 {
+    margin-top: 45px;
+    margin-bottom: 12px;
+    font-size: 32px;
+    line-height: 1.3;
+  }
+
+  .article-body p {
+    color: #d2cabc;
+  }
+
+  .article-body a {
+    color: var(--gold);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .article-body em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+  .placeholder,
+  .editorial-note {
+    padding: 16px;
+    border-left: 2px solid var(--gold);
+    background: var(--surface);
+  }
+
+  .editorial-note {
+    margin-top: 45px;
+    font-size: 12px;
+  }
+
+  @media (min-width: 1200px) {
+    .album-header {
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+      gap: 48px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .album-header {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .cover {
+      max-width: 550px;
+    }
+
+    .album-details {
+      padding-top: 0;
+    }
+
+    .article-body {
+      margin-top: 55px;
+    }
+  }
+</style>
+</Layout>

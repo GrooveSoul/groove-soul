@@ -1,0 +1,242 @@
+
+---
+import Layout from '../../layouts/Layout.astro';
+
+const musician = {
+  name: 'Alex Han',
+  role: 'Saxofonista',
+  image: '/images/musicos/AlexHan.jpeg',
+};
+---
+
+<Layout
+  title={musician.name}
+  description="Ficha de Alex Han, Saxofonista"
+>
+  <article class="container musician-page">
+    <a class="back-link" href="/musicos/">← Volver a los músicos</a>
+
+    <header class="profile">
+      <div class="portrait">
+        <img src={musician.image} alt={`Retrato de ${musician.name}`} />
+      </div>
+
+      <div class="profile-info">
+        <p class="eyebrow">DETRÁS DEL SONIDO</p>
+        <h1>{musician.name}</h1>
+        <p class="role">{musician.role}</p>
+        <div class="rule"></div>
+     <blockquote class="musician-quote">
+  “Trends come and go, but the stuff that is based on true emotion, great melodies, and a feeling that people can dance to or relate to... that is the kind of music that stands the test of time.”
+  <cite>Alex Han</cite>
+</blockquote>
+      </div>
+    </header>
+
+    <section class="biography">
+      <p class="eyebrow">SU HISTORIA</p>
+      <h2>El prodigio del saxofón</h2>
+
+      <p>
+        Nacido en 1987 en Estados Unidos comenzó desde muy joven a tocar el saxofón, 8 años, y sobre los 14 ya grabó su primer disco. 
+        Consiguió una beca para estudiar en el <em>Berklee college of music</em>, qué incluía 4 años de matrícula, manutención y alojamiento,
+        concluyó sus estudios al tercer año.
+      </p>
+      <p>
+        Fue en Berklee donde <em>Marcus</em> le ofreció tocar con él, se quedó cautivado de <em>Alex</em> por la facilidad de para tocar diferentes estilos, jazz, funk, música latina...
+        con autenticidad, pero Alex no aceptó hasta terminar sus estudios en Berklee.
+      </p>
+      <p>
+        Desde 2008 y hasta 2021 fue saxofonista habitual de <em>Marcus Miller</em>, incluso, el propio Marcus, le produjo el Álbum que le valió la nominación
+        a los Grammy a Alex, por Spirit en 2017
+      </p>
+      <p>
+        Alex no solo ha tocado un con Marcus también ha tocado con otros grandes de la música como <em>Paquito D'Rivera</em>, <em>Bob minter</em>, <em>Stanley Clarke</em>, <em>Herbie Hancock</em>... 
+        Entre otros muchos
+      </p>
+<br>
+ <div class="editorial-note">
+  <strong>Para saber más</strong>
+  <ul>
+    <li>
+      <a href="https://college.berklee.edu/news/1300/alumni-profile-alex-han-09" target="_blank" rel="noopener noreferrer">
+        Berklee: Alumni Profile, Alex Han ↗
+      </a>
+    </li>
+    <li>
+      <a href="https://www.grammy.com/artists/alex-han/187536/" target="_blank" rel="noopener noreferrer">
+        Grammy: nominación de Spirit ↗
+      </a>
+    </li>
+    <li>
+      <a href="https://www.allaboutjazz.com/alex-han-embracing-the-spirit-alex-han-by-liz-goodwin/" target="_blank" rel="noopener noreferrer">
+        All About Jazz: Alex Han, Embracing the Spirit ↗
+      </a>
+    </li>
+  </ul>
+</div>
+    </section>
+
+    <section class="related">
+      <p class="eyebrow">EN GROOVE SOUL</p>
+      <h2>Discos relacionados</h2>
+
+      <a class="album-card" href="/discos/renaissance/">
+        <img
+          src="/images/discos/renaissance.jpg"
+          alt="Portada del álbum Renaissance"
+          loading="lazy"
+        />
+        <div>
+          <h3>Renaissance</h3>
+          <p>Marcus Miller · 2012</p>
+          <span class="text-link">Leer el artículo ↗</span>
+        </div>
+      </a>
+    </section>
+  </article>
+
+  <style>
+    .musician-page {
+      padding-top: 38px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 32px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .profile {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+      gap: clamp(28px, 6vw, 75px);
+      align-items: center;
+    }
+
+    .portrait {
+      background: var(--surface);
+    }
+
+    .portrait img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    h1 {
+      margin: 12px 0;
+      font-family: var(--serif);
+      font-size: clamp(42px, 6vw, 68px);
+      font-weight: 500;
+      line-height: 1.1;
+    }
+
+    .role {
+      color: var(--gold);
+    }
+    .rule {
+      width: 48px;
+      height: 1px;
+      margin: 25px 0;
+      background: var(--gold);
+    }
+
+    .biography,
+    .related {
+      max-width: 760px;
+      margin: 80px auto 0;
+    }
+
+    .biography h2,
+    .related h2 {
+      font-family: var(--serif);
+      font-size: 34px;
+      font-weight: 500;
+    }
+
+    .biography p:not(.eyebrow) {
+      color: #d2cabc;
+      line-height: 1.9;
+    }
+
+    .editorial-note {
+      padding: 16px;
+      border-left: 2px solid var(--gold);
+      background: var(--surface);
+      font-size: 13px;
+    }
+
+    .album-card {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 22px;
+      align-items: center;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .album-card img {
+      width: 100%;
+    }
+
+    .album-card h3 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 25px;
+      font-weight: 500;
+    }
+
+    .album-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 650px) {
+      .profile {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait img {
+        max-height: 500px;
+      }
+    }
+.musician-quote {
+  margin: 28px 0 0;
+  font-family: var(--serif);
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.musician-quote cite {
+  display: block;
+  margin-top: 12px;
+  text-align: right;
+  font-family: sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  color: var(--gold);
+}
+.editorial-note ul {
+  margin: 10px 0 0;
+  padding-left: 20px;
+}
+
+.editorial-note a {
+  color: var(--gold);
+}
+.album-card {
+  transition: opacity 0.2s ease;
+}
+
+.album-card:hover {
+  opacity: 0.75;
+}
+.biography em {
+  color: var(--gold);
+}
+  </style>
+</Layout>

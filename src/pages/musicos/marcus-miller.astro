@@ -1,0 +1,233 @@
+
+---
+import Layout from '../../layouts/Layout.astro';
+
+const musician = {
+  name: 'Marcus Miller',
+  role: 'Bajista',
+  image: '/images/musicos/MarcusMiller.png',
+};
+---
+
+<Layout
+  title={musician.name}
+  description="Ficha de Marcus Miller, bajista, productor, clarinetista..."
+>
+  <article class="container musician-page">
+    <a class="back-link" href="/musicos/">← Volver a los músicos</a>
+
+    <header class="profile">
+      <div class="portrait">
+        <img src={musician.image} alt={`Retrato de ${musician.name}`} />
+      </div>
+
+      <div class="profile-info">
+        <p class="eyebrow">DETRÁS DEL SONIDO</p>
+        <h1>{musician.name}</h1>
+        <p class="role">{musician.role}</p>
+        <div class="rule"></div>
+     <blockquote class="musician-quote">
+  “You drive the band. I’m doing just as much work when I’m playing behind you, sometimes more work.”
+  <cite>Marcus Miller</cite>
+</blockquote>
+      </div>
+    </header>
+
+    <section class="biography">
+      <p class="eyebrow">SU HISTORIA</p>
+      <h2>El arte de sostener una canción</h2>
+
+      <p>
+        Marcus Miller es un bajista nacido en Nueva York en 1959, con 13 años ya tocaba el clarinete, el piano y el bajo,
+        por el cual se decantó. 
+        Con 15 años ya trabajaba de forma habitual en clubs de Nueva York.
+        Aunque nunca  ha abandonado su formación solista, ha tocado con grandes estrellas como <em>Aretha Franklin</em>, 
+        <em>Miles Davis</em>, <em>David Sanborn</em> con el que ganó un Grammy.
+      </p>
+      <p>
+        Además ha compuesto las bandas sonoras de varios largometrajes, como <em>House Party</em> o <em>Boomerang</em>.
+      </p>
+      <p>
+        También tiene un proyecto con dos grandes bajistas como <em>Victor Wooten</em> y <em>Stanley Clarke</em> conocido como 
+        <em>SMV</em> con el que fueron de gira internacional en 2008.
+      </p>
+ <div class="editorial-note">
+  <strong>Para saber más</strong>
+  <ul>
+    <li>
+      <a href="https://www.marcusmiller.com/" target="_blank" rel="noopener noreferrer">
+        Web oficial de Marcus Miller ↗
+      </a>
+    </li>
+    <li>
+      <a href="https://es.wikipedia.org/wiki/Marcus_Miller" target="_blank" rel="noopener noreferrer">
+        Biografía en Wikipedia ↗
+      </a>
+    </li>
+  </ul>
+</div>
+    </section>
+
+    <section class="related">
+      <p class="eyebrow">EN GROOVE SOUL</p>
+      <h2>Discos relacionados</h2>
+
+      <a class="album-card" href="/discos/renaissance/">
+        <img
+          src="/images/discos/renaissance.jpg"
+          alt="Portada del álbum Renaissance"
+          loading="lazy"
+        />
+        <div>
+          <h3>Renaissance</h3>
+          <p>Marcus Miller · 2012</p>
+          <span class="text-link">Leer el artículo ↗</span>
+        </div>
+      </a>
+    </section>
+  </article>
+
+  <style>
+    .musician-page {
+      padding-top: 38px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 32px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .profile {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+      gap: clamp(28px, 6vw, 75px);
+      align-items: center;
+    }
+
+    .portrait {
+      background: var(--surface);
+    }
+
+    .portrait img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    h1 {
+      margin: 12px 0;
+      font-family: var(--serif);
+      font-size: clamp(42px, 6vw, 68px);
+      font-weight: 500;
+      line-height: 1.1;
+    }
+
+    .role {
+      color: var(--gold);
+    }
+    .rule {
+      width: 48px;
+      height: 1px;
+      margin: 25px 0;
+      background: var(--gold);
+    }
+
+    .biography,
+    .related {
+      max-width: 760px;
+      margin: 80px auto 0;
+    }
+
+    .biography h2,
+    .related h2 {
+      font-family: var(--serif);
+      font-size: 34px;
+      font-weight: 500;
+    }
+
+    .biography p:not(.eyebrow) {
+      color: #d2cabc;
+      line-height: 1.9;
+    }
+
+    .editorial-note {
+      padding: 16px;
+      border-left: 2px solid var(--gold);
+      background: var(--surface);
+      font-size: 13px;
+    }
+
+    .album-card {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 22px;
+      align-items: center;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .album-card img {
+      width: 100%;
+    }
+
+    .album-card h3 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 25px;
+      font-weight: 500;
+    }
+
+    .album-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 650px) {
+      .profile {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait img {
+        max-height: 500px;
+      }
+    }
+.musician-quote {
+  margin: 28px 0 0;
+  font-family: var(--serif);
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.musician-quote cite {
+  display: block;
+  margin-top: 12px;
+  text-align: right;
+  font-family: sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  color: var(--gold);
+}
+.editorial-note ul {
+  margin: 10px 0 0;
+  padding-left: 20px;
+}
+
+.editorial-note a {
+  color: var(--gold);
+}
+.album-card {
+  transition: opacity 0.2s ease;
+}
+
+.album-card:hover {
+  opacity: 0.75;
+}
+.biography em {
+  color: var(--gold);
+}
+  </style>
+</Layout>

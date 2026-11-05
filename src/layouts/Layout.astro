@@ -1,0 +1,55 @@
+
+---
+import '../styles/global.css';
+
+const { title = 'Groove Soul', description = 'Un espacio para escuchar.' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#171817" />
+    <title>{title} · Groove Soul</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" /> 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <!-- <a class="brand" href="/" aria-label="Groove Soul, inicio">
+        <span class="brand-mark">楽</span>
+        <span class="brand-name">GROOVE <span>SOUL</span></span>
+      </a>-->
+    <a class="brand" href="/" aria-label="Groove Soul, inicio">
+      <img class="brand-mark" src="/images/logo/logo.png" alt="logo groove soul"/>
+      <span class="brand-name">GROOVE <span>SOUL</span></span>
+    </a>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="/">Inicio</a>
+        <a href="/discos/">Discos</a>
+        <a href="/musicos/">Músicos</a>
+        <a href="/filosofia/">Filosofía</a>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="/">GROOVE SOUL</a>
+      <p>Discos que se escuchan. Música que se siente.</p>
+      <span>Un espacio personal para compartir música que me ha hecho sentir aglo.</span>
+    </footer>
+  </body>
+</html>

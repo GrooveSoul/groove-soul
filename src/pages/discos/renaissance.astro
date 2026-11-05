@@ -1,0 +1,331 @@
+
+---
+import Layout from '../../layouts/Layout.astro';
+
+const album = {
+  title: 'Renaissance',
+  artist: 'Marcus Miller',
+  year: 2012,
+  label: 'Concord Jazz',
+  style: 'Funk · Soul · Blues',
+  cover: '/images/discos/renaissance.jpg',
+  musicians: [
+    { name: 'Marcus Miller', role: 'Bajo, Clarinete, teclas guitarra y composicion', href: '/musicos/marcus-miller/' },
+    { name: 'Alex Han', role: 'Saxo alto', href: '/musicos/alex-han/' },
+    { name: 'Gretchen Parlato', role: 'Voz', href: '/musicos/gretchen-parlato/' },
+    { name: 'Kris Bowers', role: 'Piano acústico, piano eléctrico Fender Rhodes' },
+  { name: 'Federico González Peña', role: 'Piano acústico, piano eléctrico Fender Rhodes y teclados' },
+  { name: 'Bobby Sparks', role: 'Órgano Hammond, clavinet y teclados'},
+  { name: 'Adam Agati', role: 'Guitarra eléctrica'},
+  { name: 'Adam Rogers', role: 'Guitarra eléctrica y guitarra acústica'},
+  { name: 'Paul Jackson Jr.', role: 'Guitarra eléctrica'},
+  { name: 'Louis Cato', role: 'Batería, djembé y congas' },
+  { name: 'Ramón Yslas', role: 'Percusión' },
+  { name: 'Maurice "Mobetta" Brown', role: 'Trompeta y trompeta con sordina'},
+  { name: 'Sean Jones', role: 'Trompeta' },
+  { name: 'Rubén Blades', role: 'Voz' },
+  { name: 'Dr. John', role: 'Voz' }
+  ],
+};
+---
+
+<Layout
+  title={`${album.title} · ${album.artist}`}
+  description="Una mirada personal a renaissance, el álbum de Marcus Miller publicado en el año 2012."
+>
+  <article class="container album-page">
+    <a class="back-link" href="/discos/">← Volver a los discos</a>
+
+    <header class="album-header">
+      <div class="cover-column">
+        <img class="cover" src={album.cover} alt={`Portada de ${album.title}, de ${album.artist}`} />
+        <p class="cover-caption">UN DISCO, MUCHAS FORMAS DE SENTIRLO</p>
+      </div>
+
+      <div class="album-details">
+        <p class="eyebrow">EL ÁLBUM</p>
+        <h1>{album.title}</h1>
+        <p class="artist">{album.artist}</p>
+        <p class="year">{album.year}</p>
+        <div class="rule"></div>
+
+        <dl>
+          <dt>Estilo</dt>
+          <dd>{album.style}</dd>
+          <dt>Discográfica</dt>
+          <dd>{album.label}</dd>
+        </dl>
+
+        <h2>Los músicos</h2>
+        <ul class="musician-list">
+          {album.musicians.map((musician) => (
+            <li>
+              <a href={musician.href}>
+                <span>{musician.name}</span>
+                <small>{musician.role}</small>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </header>
+
+    
+    <div class="article-body">
+      <p class="eyebrow">UNA FUSION DE RITMOS PREDOMINADOS POR EL JAZZ Y EL FUNK</p>
+      <h2>Una ruta guiada por un bajo magistral</h2>
+
+      <p>
+        Publicado en el año 2012, <em>Renaissance</em> fue publicado 5 años despues de su anterior disco, e intento,
+        en este disco, a la hora de grabarlo dar más importacia a la interpretación fernte a la grabación de 
+        estudio habitual. Este es uno de mis discos favoritos, por esto he decidido que sea el primero en esta colección de 
+        discos increíbles.
+        </p>
+        <p>
+        Con un claro protagonismo del bajo, como es obvio, Marcus creó este disco
+        con una fusión muy rica de diversos estilos donde predominan el Funk, el Soul y el Jazz
+        pero no solo esto ya que queria transmitir que la musica es un lenuaje universal y que
+        fusionar musicas de difernetes culturas no hace mas que enriquecer a la música.
+        Por esto se pueden encontrar pinceladas de otros estilos, como en
+        la canción <em>Setembro</em> donde puede percibirse influencias de musica cubana
+        y brasileña incluyendo coros en castellano como en el son cubano.
+      </p>
+      <p>Otra canción que me gustaría destacar es <em>Slippin' into Darkness</em> la cual hace guiños 
+      a la canción de Bob Marley <em>Get Up, Stand Up</em> sonando en ocasiones partes de esta cancion, intercaladas
+      con la propia canción</p>
+
+      <p>
+        Aunque el bajo es el conductor de los temas, <em>Marcus</em>, sabe dar protagonismo a los vientos
+        utilizándolos para dominar en ocasiones por completo la canción o darle más fuerza a 
+        ciertas partes. De hecho en la canción <em>CEE-TEE-EYE</em> es el propio Marcus Miller el que
+        toca el clarinete.
+      </p>
+
+
+      <h2>Las personas detrás del sonido</h2>
+
+      <p>
+        En este disco la parte musical no solo es mérito de Marcus Miller, gran artífice de todo,
+        si no de otros músicos que aportan sus características y personalidades
+        en diferentes canciones, algunos siendo protagonistas de algunas de estas.
+      </p>
+
+      <p>
+        Uno de esos nombres es <a href="/musicos/alex-han/">Alex Han</a>,
+        cuyo trabajo al saxofón alto forma parte del universo musical del disco, 
+        sabiendo cuando coger protagonismo y cuando ser un acompañamiento que de fuerza
+        la canción creada por Marcus Miller.
+      </p>
+
+      <p>
+        Otra que me gustaría destacar es la voz de <a href="/musicos/gretchen-parlato/">Gretchen Parlato</a>,
+        que se puede escuchar en la canción <em>Setembro</em>
+      </p>
+
+      <h2>Una canción con imagen: Revelation</h2>
+      <p>
+        La música tiene un esa cualidad que, en ocasiones, nos ayuda a construir paisajes, momentos, o nos lleva a recuerdos del pasado.
+        En este disco <em>Revelation</em> con esa combinación de sonidos emitidos por el bajo y el saxofón son capaces de
+        trasladarme a una noche de verano en el Albaicín, con una Alhambra iluminada de fondo.
+      </p>
+
+      <h2>Mi canción favorita: Detroit</h2>
+
+      <p class="placeholder">      
+        Aunque hay canciones muy buenas como <em>Revelation</em>, que guiado por el bajo y el saxofón me transporta a 
+        una noche en el albaicín con la Alhambra iluminada de fondo.
+        En este caso, me gustaría destacar <em>Detroit</em>, puedo escuchar 
+        esta canción una y otra vez y es la que me hizo querer descubir más sobre este disco.
+        Me sirve para conseguir animar esos días que cuestan solo por ser días, dándome esa fuerza necesaria y obligándome
+        de forma involuntaria a moverme al ritmo del bajo
+      </p>
+      <p class="editorial-note">
+        Puedes leer una entrevista al propio Marcus Miller sobre el disco <a href="https://www.notreble.com/buzz/2012/08/16/renaissance-man-an-interview-with-marcus-miller/">aqui</a>.
+            </p>
+
+    </div>
+  </article>
+
+  
+<style>
+  .album-page {
+    padding-top: 38px;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 32px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+.album-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(28px, 4vw, 58px);
+  align-items: start;
+}
+
+  .cover {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .cover-caption {
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .album-details {
+    padding-top: 8px;
+    min-width: 0;
+  }
+
+  h1 {
+    margin: 10px 0 0;
+    font-family: var(--serif);
+    font-size: clamp(48px, 5.5vw, 72px);
+    font-weight: 500;
+    line-height: 1.08;
+  }
+
+  .artist {
+    margin: 10px 0 0;
+    font-size: 25px;
+  }
+
+  .year {
+    color: var(--muted);
+    letter-spacing: 3px;
+  }
+
+  .rule {
+    width: 48px;
+    height: 1px;
+    margin: 20px 0;
+    background: var(--gold);
+  }
+
+  dl {
+    display: grid;
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 10px 12px;
+    font-size: 13px;
+  }
+
+  dt {
+    color: var(--muted);
+  }
+
+  dd {
+    margin: 0;
+  }
+
+  .album-details h2,
+  .article-body h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+  }
+
+  .album-details h2 {
+    margin-top: 26px;
+    margin-bottom: 12px;
+    font-size: 22px;
+  }
+
+.musician-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) var(--surface);
+  padding-right: 10px;
+}
+
+.musician-list li {
+  border-top: 1px solid var(--line);
+}
+
+.musician-list a {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 0;
+}
+
+.musician-list small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+  .article-body {
+    max-width: 720px;
+    margin: 85px auto 0;
+    font-size: 16px;
+    line-height: 1.95;
+  }
+
+  .article-body h2 {
+    margin-top: 45px;
+    margin-bottom: 12px;
+    font-size: 32px;
+    line-height: 1.3;
+  }
+
+  .article-body p {
+    color: #d2cabc;
+  }
+
+  .article-body a {
+    color: var(--gold);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .article-body em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+  .placeholder,
+  .editorial-note {
+    padding: 16px;
+    border-left: 2px solid var(--gold);
+    background: var(--surface);
+  }
+
+  .editorial-note {
+    margin-top: 45px;
+    font-size: 12px;
+  }
+
+  @media (min-width: 1200px) {
+    .album-header {
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+      gap: 48px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .album-header {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .cover {
+      max-width: 550px;
+    }
+
+    .album-details {
+      padding-top: 0;
+    }
+
+    .article-body {
+      margin-top: 55px;
+    }
+  }
+</style>
+</Layout>

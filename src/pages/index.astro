@@ -1,0 +1,321 @@
+
+---
+import Layout from '../layouts/Layout.astro';
+
+const featuredAlbum = {
+  title: 'Renaissance',
+  artist: 'Marcus Miller',
+  year: 2012,
+  style: 'Funk · Soul · Blues',
+  image: '/images/discos/renaissance.jpg',
+  intro:
+  'La fusión de culturas enriquece y mantiene viva la música '
+};
+
+const musicians = [
+  {
+    name: 'Marcus Miller',
+    role: 'Bajista',
+    image: '/images/musicos/MarcusMiller.png',
+    slug: 'marcus-miller',
+  },
+  {
+    name: 'Alex Han',
+    role: 'Saxofonista',
+    image: '/images/musicos/AlexHan.jpeg',
+    slug: 'alex-han',
+  },
+  {
+    name: 'Gretchen Parlato',
+    role: 'Vocalista',
+    image: '/images/musicos/GretchenParlato.jpeg',
+    slug: 'gretchen-parlato',
+  },
+];
+---
+
+<Layout
+  title="Inicio"
+  description="Groove Soul: discos, músicos e historias de música contadas desde una perspectiva personal.">
+  <section class="hero container">
+    <p class="eyebrow">UN ESPACIO PARA ESCUCHAR</p>
+    <h1>La música es dificil de explicar.<br /><span>Sueltate y dejate llevar.</span></h1>
+    <p class="hero-copy">
+      La música nos permite conectar entre personas con diferentes lenguas a través de los sentimientos y trasportarnos a mundos desconocidos.     
+    </p>
+    <a class="text-link" href="/filosofia/">Conoce la filosofía de la web ↗</a>
+  </section>
+
+  <section class="featured container">
+    <div class="section-top">
+      <p class="eyebrow">EL DISCO DESTACADO</p>
+      <a class="text-link" href="/discos/">Explorar discos ↗</a>
+    </div>
+
+    <div class="album-feature">
+      <a class="cover-link" href="/discos/renaissance/">
+        <img
+          class="album-cover"
+          src={featuredAlbum.image}
+          alt="Portada del álbum Renaissance de Marus Miler"
+        />
+      </a>
+
+      <div class="album-info">
+        <p class="eyebrow">{featuredAlbum.style}</p>
+        <h2>{featuredAlbum.title}</h2>
+        <p class="artist">{featuredAlbum.artist}</p>
+        <p class="album-year">ÁLBUM · {featuredAlbum.year}</p>
+        <div class="small-rule"></div>
+        <p class="album-intro">{featuredAlbum.intro}</p>
+        <a class="text-link" href="/discos/renaissance/">Leer el artículo ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="manifesto">
+    <div class="container manifesto-inner">
+      <p class="eyebrow">NO HAY UNA ÚNICA FORMA DE SENTIR</p>
+      <h2>No quiero contar qué música es buena y cual mala.<br /><span>Vengo a compartir la que me mueve a mi y lo que me hace sentir.</span></h2>
+      <p>
+        No soy experto, ni tengo un conocimiento extensos sobre la música, no soy catedratico ni quiero impartir clases.<br><br>
+        Este lugar es un espacio donde expresar mis sentimientos sobre obras que he escucahdo y han marcado mi vida
+        por lo que me han removido en mi interior.
+      </p>
+      <a class="text-link" href="/filosofia/">Así entiendo la música ↗</a>
+    </div>
+  </section>
+
+  <section class="musicians container">
+    <div class="section-top">
+      <div>
+        <p class="eyebrow">DETRÁS DEL SONIDO</p>
+        <h2 class="section-heading">Las personas detrás del arte</h2>
+      </div>
+      <a class="text-link" href="/musicos/">Todos los músicos ↗</a>
+    </div>
+
+    <div class="musician-grid">
+      {musicians.map((musician) => (
+        <a class="musician-card" href={`/musicos/${musician.slug}/`}>
+          <div class="portrait-frame">
+            <img src={musician.image} alt={musician.name} loading="lazy" />
+          </div>
+          <h3>{musician.name}</h3>
+          <p>{musician.role}</p>
+          <span class="card-arrow">Descubrir ↗</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <style>
+    .hero {
+      padding-top: 100px;
+      padding-bottom: 90px;
+    }
+
+    .hero h1 {
+      margin: 18px 0;
+      font-family: var(--serif);
+      font-size: clamp(46px, 7vw, 82px);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span,
+    .manifesto h2 span {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .hero-copy {
+      max-width: 540px;
+      margin: 0 0 26px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .featured {
+      padding-bottom: 100px;
+    }
+
+    .section-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .album-feature {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      gap: clamp(28px, 6vw, 76px);
+      align-items: center;
+    }
+
+    .cover-link {
+      display: block;
+      background: var(--surface);
+    }
+
+    .album-cover {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .album-info {
+      padding: 20px 0;
+    }
+
+    .album-info h2 {
+      margin: 8px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(42px, 5vw, 65px);
+      font-weight: 500;
+      line-height: 1.1;
+    }
+
+    .artist {
+      margin: 8px 0;
+      font-size: 22px;
+    }
+
+    .album-year {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    .small-rule {
+      width: 50px;
+      height: 1px;
+      margin: 25px 0;
+      background: var(--gold);
+    }
+
+    .album-intro {
+      margin-bottom: 28px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .manifesto {
+      padding: 80px 0;
+      background: var(--surface);
+      border-block: 1px solid var(--line);
+    }
+
+    .manifesto-inner {
+      max-width: 850px;
+    }
+
+    .manifesto h2 {
+      margin: 20px 0;
+      font-family: var(--serif);
+      font-size: clamp(32px, 5vw, 53px);
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .manifesto-inner > p:not(.eyebrow) {
+      max-width: 660px;
+      margin-bottom: 25px;
+      color: var(--muted);
+    }
+
+    .musicians {
+      padding-top: 90px;
+    }
+
+    .musicians .section-top {
+      align-items: end;
+    }
+
+    .musicians .section-heading {
+      margin-top: 8px;
+      margin-bottom: 0;
+    }
+
+    .musician-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .portrait-frame {
+      overflow: hidden;
+      background: var(--surface);
+      aspect-ratio: 4 / 5;
+    }
+
+    .portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.75);
+      transition: transform 250ms ease;
+    }
+
+    .musician-card:hover img {
+      transform: scale(1.035);
+    }
+
+    .musician-card h3 {
+      margin: 15px 0 0;
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .musician-card p {
+      margin: 2px 0 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .card-arrow {
+      color: var(--gold);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 650px) {
+      .hero {
+        padding-top: 65px;
+        padding-bottom: 60px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .album-feature {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .album-cover {
+        max-height: 450px;
+      }
+
+      .section-top {
+        align-items: flex-start;
+      }
+
+      .musician-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 14px;
+      }
+
+      .musicians .section-top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</Layout>
