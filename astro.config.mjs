@@ -1,7 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   site: 'https://groovesoul.github.io',
-  base: '/groove-soul',
-});
+  base: command === 'dev' ? '/' : '/groove-soul',
+  trailingSlash: 'always',
+}));

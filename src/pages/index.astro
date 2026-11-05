@@ -1,34 +1,35 @@
 
 ---
 import Layout from '../layouts/Layout.astro';
+import { withBase } from '../utils/paths';
 
 const featuredAlbum = {
   title: 'Renaissance',
   artist: 'Marcus Miller',
   year: 2012,
   style: 'Funk · Soul · Blues',
-  image: '/images/discos/renaissance.jpg',
+  image: withBase('/images/discos/renaissance.jpg'),
   intro:
-  'La fusión de culturas enriquece y mantiene viva la música '
+    'La fusión de culturas enriquece y mantiene viva la música '
 };
 
 const musicians = [
   {
     name: 'Marcus Miller',
     role: 'Bajista',
-    image: '/images/musicos/MarcusMiller.png',
+    image: withBase('/images/musicos/MarcusMiller.png'),
     slug: 'marcus-miller',
   },
   {
     name: 'Alex Han',
     role: 'Saxofonista',
-    image: '/images/musicos/AlexHan.jpeg',
+    image: withBase('/images/musicos/AlexHan.jpeg'),
     slug: 'alex-han',
   },
   {
     name: 'Gretchen Parlato',
     role: 'Vocalista',
-    image: '/images/musicos/GretchenParlato.jpeg',
+    image: withBase('/images/musicos/GretchenParlato.jpeg'),
     slug: 'gretchen-parlato',
   },
 ];
@@ -41,24 +42,20 @@ const musicians = [
     <p class="eyebrow">UN ESPACIO PARA ESCUCHAR</p>
     <h1>La música es dificil de explicar.<br /><span>Sueltate y dejate llevar.</span></h1>
     <p class="hero-copy">
-      La música nos permite conectar entre personas con diferentes lenguas a través de los sentimientos y trasportarnos a mundos desconocidos.     
+      La música nos permite conectar entre personas con diferentes lenguas a través de los sentimientos y trasportarnos a mundos desconocidos.
     </p>
-    <a class="text-link" href="/filosofia/">Conoce la filosofía de la web ↗</a>
+    <a class="text-link" href={withBase('/filosofia/')}>Conoce la filosofía de la web ↗</a>
   </section>
 
   <section class="featured container">
     <div class="section-top">
       <p class="eyebrow">EL DISCO DESTACADO</p>
-      <a class="text-link" href="/discos/">Explorar discos ↗</a>
+      <a class="text-link" href={withBase('/discos/')}>Explorar discos ↗</a>
     </div>
 
     <div class="album-feature">
-      <a class="cover-link" href="/discos/renaissance/">
-        <img
-          class="album-cover"
-          src={featuredAlbum.image}
-          alt="Portada del álbum Renaissance de Marus Miler"
-        />
+      <a class="cover-link" href={withBase('/discos/renaissance/')}>
+        <img class="album-cover" src={featuredAlbum.image} alt="Portada del álbum Renaissance de Marus Miler"/>
       </a>
 
       <div class="album-info">
@@ -68,7 +65,7 @@ const musicians = [
         <p class="album-year">ÁLBUM · {featuredAlbum.year}</p>
         <div class="small-rule"></div>
         <p class="album-intro">{featuredAlbum.intro}</p>
-        <a class="text-link" href="/discos/renaissance/">Leer el artículo ↗</a>
+        <a class="text-link" href={withBase('/discos/renaissance/')}>Leer el artículo ↗</a>
       </div>
     </div>
   </section>
@@ -82,7 +79,7 @@ const musicians = [
         Este lugar es un espacio donde expresar mis sentimientos sobre obras que he escucahdo y han marcado mi vida
         por lo que me han removido en mi interior.
       </p>
-      <a class="text-link" href="/filosofia/">Así entiendo la música ↗</a>
+      <a class="text-link" href={withBase('/filosofia/')}>Así entiendo la música ↗</a>
     </div>
   </section>
 
@@ -92,12 +89,12 @@ const musicians = [
         <p class="eyebrow">DETRÁS DEL SONIDO</p>
         <h2 class="section-heading">Las personas detrás del arte</h2>
       </div>
-      <a class="text-link" href="/musicos/">Todos los músicos ↗</a>
+      <a class="text-link" href={withBase('/musicos/')}>Todos los músicos ↗</a>
     </div>
 
     <div class="musician-grid">
       {musicians.map((musician) => (
-        <a class="musician-card" href={`/musicos/${musician.slug}/`}>
+        <a class="musician-card" href={withBase(`/musicos/${musician.slug}/`)}>
           <div class="portrait-frame">
             <img src={musician.image} alt={musician.name} loading="lazy" />
           </div>

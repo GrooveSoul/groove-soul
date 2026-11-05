@@ -1,11 +1,12 @@
 
 ---
 import Layout from '../../layouts/Layout.astro';
+import { withBase } from '../../utils/paths';
 
 const musician = {
   name: 'Marcus Miller',
   role: 'Bajista',
-  image: '/images/musicos/MarcusMiller.png',
+  image: withBase('/images/musicos/MarcusMiller.png'),
 };
 ---
 
@@ -14,7 +15,7 @@ const musician = {
   description="Ficha de Marcus Miller, bajista, productor, clarinetista..."
 >
   <article class="container musician-page">
-    <a class="back-link" href="/musicos/">← Volver a los músicos</a>
+    <a class="back-link" href={withBase('/musicos/')}>← Volver a los músicos</a>
 
     <header class="profile">
       <div class="portrait">
@@ -72,7 +73,7 @@ const musician = {
       <p class="eyebrow">EN GROOVE SOUL</p>
       <h2>Discos relacionados</h2>
 
-      <a class="album-card" href="/discos/renaissance/">
+      <a class="album-card" href={withBase('/discos/renaissance/')}>
         <img
           src="/images/discos/renaissance.jpg"
           alt="Portada del álbum Renaissance"

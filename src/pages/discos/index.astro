@@ -1,6 +1,7 @@
 
 ---
 import Layout from '../../layouts/Layout.astro';
+import { withBase } from '../../utils/paths';
 
 const albums = [
   {
@@ -8,8 +9,8 @@ const albums = [
     artist: 'Marcus Miller',
     year: 2012,
     style: 'Funk · Soul · Blues',
-    cover: '/images/discos/renaissance.jpg',
-    href: '/discos/renaissance/',
+    cover: withBase('/images/discos/renaissance.jpg'),
+    href: withBase('/discos/renaissance/'),
   },
 ];
 ---

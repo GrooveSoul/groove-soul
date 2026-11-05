@@ -1,13 +1,27 @@
 
 ---
 import Layout from '../../layouts/Layout.astro';
+import { withBase } from '../../utils/paths';
+
 
 const musicians = [
+{
+    name: 'Marcus Miller',
+    role: 'Bajista',
+    image: withBase('/images/musicos/MarcusMiller.png'),
+    slug: 'marcus-miller',
+  },
   {
-    name: 'Pino Palladino',
-    role: 'Bajo eléctrico',
-    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Pino_Palladino.jpg',
-    href: '/musicos/pino-palladino/',
+    name: 'Alex Han',
+    role: 'Saxofonista',
+    image: withBase('/images/musicos/AlexHan.jpeg'),
+    slug: 'alex-han',
+  },
+  {
+    name: 'Gretchen Parlato',
+    role: 'Vocalista',
+    image: withBase('/images/musicos/GretchenParlato.jpeg'),
+    slug: 'gretchen-parlato',
   },
 ];
 ---
@@ -22,7 +36,7 @@ const musicians = [
 
     <div class="musician-grid">
       {musicians.map((musician) => (
-        <a class="musician-card" href={musician.href}>
+          <a class="musician-card" href={withBase(`/musicos/${musician.slug}/`)}>
           <img src={musician.image} alt={`Retrato de ${musician.name}`} />
           <h2>{musician.name}</h2>
           <p>{musician.role}</p>
@@ -51,15 +65,20 @@ const musicians = [
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 25px;
     }
+    .musician-card {
+      display: block;
+      overflow: hidden;
+    }
 
     .musician-card img {
+      display: block;
       width: 100%;
       aspect-ratio: 4 / 5;
       object-fit: cover;
       background: var(--surface);
       filter: saturate(0.8);
+      transition: transform 250ms ease;
     }
-
     .musician-card h2 {
       margin: 14px 0 0;
       font-family: var(--serif);
@@ -73,11 +92,19 @@ const musicians = [
       font-size: 13px;
     }
 
+
     @media (max-width: 650px) {
       .musician-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 20px 14px;
       }
+      .musician-card {
+        display: block;
+        overflow: hidden;
+      }
     }
+.musician-card:hover img {
+  transform: scale(1.035);
+}
   </style>
 </Layout>

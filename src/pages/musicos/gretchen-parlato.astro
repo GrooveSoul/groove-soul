@@ -1,11 +1,11 @@
-
 ---
 import Layout from '../../layouts/Layout.astro';
+import { withBase } from '../../utils/paths';
 
 const musician = {
   name: 'Gretchen Parlato',
   role: 'Vocalista',
-  image: '/images/musicos/GretchenParlato.jpeg',
+  image: withBase('/images/musicos/GretchenParlato.jpeg'),
 };
 ---
 
@@ -14,7 +14,7 @@ const musician = {
   description="Ficha de Gretchen Parlato, Vocalista"
 >
   <article class="container musician-page">
-    <a class="back-link" href="/musicos/">← Volver a los músicos</a>
+    <a class="back-link" href={withBase('/musicos/')}>← Volver a los músicos</a>
 
     <header class="profile">
       <div class="portrait">
@@ -76,12 +76,8 @@ const musician = {
       <p class="eyebrow">EN GROOVE SOUL</p>
       <h2>Discos relacionados</h2>
 
-      <a class="album-card" href="/discos/renaissance/">
-        <img
-          src="/images/discos/renaissance.jpg"
-          alt="Portada del álbum Renaissance"
-          loading="lazy"
-        />
+      <a class="album-card" href={withBase('/discos/renaissance/')}>
+        <img src={withBase('/images/discos/renaissance.jpg')} alt="Portada del álbum Renaissance" loading="lazy"/>
         <div>
           <h3>Renaissance</h3>
           <p>Marcus Miller · 2012</p>
