@@ -9,11 +9,11 @@ const album = {
   year: 2012,
   label: 'Concord Jazz',
   style: 'Funk · Soul · Blues',
-  cover: '/images/discos/renaissance.jpg',
+  cover: withBase('/images/discos/renaissance.jpg'),
   musicians: [
-    { name: 'Marcus Miller', role: 'Bajo, Clarinete, teclas guitarra y composicion', href: '/musicos/marcus-miller/' },
-    { name: 'Alex Han', role: 'Saxo alto', href: '/musicos/alex-han/' },
-    { name: 'Gretchen Parlato', role: 'Voz', href: '/musicos/gretchen-parlato/' },
+    { name: 'Marcus Miller', role: 'Bajo, Clarinete, teclas guitarra y composicion', href: withBase('/musicos/marcus-miller/') },
+    { name: 'Alex Han', role: 'Saxo alto', href: withBase('/musicos/alex-han/') },
+    { name: 'Gretchen Parlato', role: 'Voz', href: withBase('/musicos/gretchen-parlato/') },
     { name: 'Kris Bowers', role: 'Piano acústico, piano eléctrico Fender Rhodes' },
   { name: 'Federico González Peña', role: 'Piano acústico, piano eléctrico Fender Rhodes y teclados' },
   { name: 'Bobby Sparks', role: 'Órgano Hammond, clavinet y teclados'},
@@ -35,7 +35,7 @@ const album = {
   description="Una mirada personal a renaissance, el álbum de Marcus Miller publicado en el año 2012."
 >
   <article class="container album-page">
-    <a class="back-link" href="/discos/">← Volver a los discos</a>
+    <a class="back-link" href={withBase('/discos/')}'>← Volver a los discos</a>
 
     <header class="album-header">
       <div class="cover-column">
@@ -112,14 +112,14 @@ const album = {
       </p>
 
       <p>
-        Uno de esos nombres es <a href="/musicos/alex-han/">Alex Han</a>,
+        Uno de esos nombres es <a href={withBase('/musicos/alex-han/')}>Alex Han</a>,
         cuyo trabajo al saxofón alto forma parte del universo musical del disco, 
         sabiendo cuando coger protagonismo y cuando ser un acompañamiento que de fuerza
         la canción creada por Marcus Miller.
       </p>
 
       <p>
-        Otra que me gustaría destacar es la voz de <a href="/musicos/gretchen-parlato/">Gretchen Parlato</a>,
+        Otra que me gustaría destacar es la voz de <a href={withBase('/musicos/gretchen-parlato/')}>Gretchen Parlato</a>,
         que se puede escuchar en la canción <em>Setembro</em>
       </p>
 
